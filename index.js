@@ -63,6 +63,16 @@ client.connect(err => {
     })
   })
 
+  app.post('/addevent', (req, res) => {
+    const event = req.body;
+    volunteersCollection.insertOne(event)
+    .then(result => {
+      res.send(result);
+      console.log(result);
+    })
+    
+  })
+
 
     
 });
